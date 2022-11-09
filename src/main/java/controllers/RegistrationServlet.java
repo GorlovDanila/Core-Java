@@ -34,10 +34,11 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Connection connection = PostgresConnectionProvider.getConnection();
+        //Connection connection = PostgresConnectionProvider.getConnection();
         boolean flagUnic = true;
         boolean flagIsNotEmpty = false;
         try {
+            Connection connection = PostgresConnectionProvider.getConnection();
             if (req.getParameter("personLogin") != null && req.getParameter("personPassword") != null && !req.getParameter("personLogin").equals("") && !req.getParameter("personPassword").equals("")) {
                 flagIsNotEmpty= true;
                 List<UserEntity> userEntities = GetDataFromDB.getAllUsers();

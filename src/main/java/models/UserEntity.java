@@ -10,6 +10,16 @@ public class UserEntity {
 
     private List<AnimEntity> listViewed;
 
+    private List<Integer> listViewedId;
+
+    public List<Integer> getListViewedId() {
+        return listViewedId;
+    }
+
+    public void setListViewedId(List<Integer> listViewedId) {
+        this.listViewedId = listViewedId;
+    }
+
     public List<AnimEntity> getListViewed() {
         return listViewed;
     }

@@ -43,10 +43,11 @@ public class AdminPageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Connection connection = PostgresConnectionProvider.getConnection();
+        //Connection connection = PostgresConnectionProvider.getConnection();
         String sqlQuery = "";
         PreparedStatement statement;
         try {
+            Connection connection = PostgresConnectionProvider.getConnection();
             List<AuthorEntity> authors = GetDataFromDB.getAuthorsTableData();
             List<AnimEntity> anims = GetDataFromDB.getAnimTableData();
             if (req.getParameter("nameNewAuthor") != null && !req.getParameter("nameNewAuthor").equals("") && req.getParameter("infoNewAuthor") != null && !req.getParameter("infoNewAuthor").equals("") && req.getParameter("titleNewAnime") != null && !req.getParameter("titleNewAnime").equals("") && req.getParameter("newAnimeGenre") != null && !req.getParameter("newAnimeGenre").equals("") && req.getParameter("yearNewAnime") != null && !req.getParameter("yearNewAnime").equals("") && req.getParameter("typeNewAnime") != null && !req.getParameter("typeNewAnime").equals("") && req.getParameter("statusNewAnime") != null && !req.getParameter("statusNewAnime").equals("")) {
